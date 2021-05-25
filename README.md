@@ -133,6 +133,8 @@ npm install --save-dev @babel/core @babel/cli
 
 #### polyfill (用于处理api层)
 
+**polyfill**的中文意思是垫片，顾名思义就是垫平不同浏览器或者不同环境下的差异，让新的内置函数、实例方法等在低版本浏览器中也可以使用。
+
 `@babel/polyfill` 模块包括 `core-js` 和一个自定义的 `regenerator runtime` 模块，可以模拟完整的 ES2015+ 环境（不包含第4阶段前的提议）。
 
 
@@ -147,7 +149,59 @@ npm install --save @babel/polyfill
 
 
 
+```javascript
+import '@babel/polyfill';
+const p = new Promise((resolve, reject) => {    
+  resolve('success');
+});
+```
+
+转译结果：
+
+```javascript
+"use strict";
+
+require("@babel/polyfill");
+
+var p = new Promise(function (resolve, reject) {
+  resolve('success');
+});
+```
+
+虽然看起来Promise还是没有转译，但是我们引入的 polyfill 中已经包含了对Promise的es5的定义，所以这时候代码便可以在低版本浏览器中运行了。
 
 
 
+#### useBuiltIns属性
 
+`useBuiltIns`这一配置项，它的值有三种：
+
+- `false`: 不对`polyfills`做任何操作
+
+- `entry`: 根据`target`中浏览器版本的支持，将`polyfills`拆分引入，仅引入有浏览器不支持的`polyfill`
+
+- `usage(新)`：检测代码中`ES6/7/8`等的使用情况，仅仅加载代码中用到的`polyfills`
+
+  
+
+```javascript
+//.babelrc
+{
+   "presets": [
+       ["@babel/preset-env",{
+           "useBuiltIns": "usage", // 实现按需引入
+           "corejs":2
+       }]
+   ]
+}
+```
+
+
+
+#### @babel/plugin-transform-runtime
+
+解决代码冗余
+
+代码冗余是出现在转译语法层时出现的问题。
+
+> `@babel/plugin-transform-runtime` 需要和 `@babel/runtime` 配合使用。
