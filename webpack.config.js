@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: "development",
@@ -12,10 +13,29 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.jsx?$/,
-            use: ['babel-loader'],
-            exclude: /node_modules/
-        }]
+                test: /\.jsx?$/,
+                use: ['babel-loader'],
+                exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpg|gif|jpeg|webp|svg|eot|ttf|woff|woff2)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        name: '[name]_[hash:6].[ext]',
+                        outputPath: 'images/',
+                        limit: 10240, //10K
+                        esModule: false
+                    }
+                }],
+                exclude: /node_modules/
+            }
+        ]
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -27,6 +47,9 @@ module.exports = {
             //     collapseWhitespace: false, // 是否折叠空白
             // },
             // hash: false // 是否加上hash值,默认是 false
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[contenthash:9].[name].css',
         })
     ],
     devServer: {
