@@ -1,28 +1,12 @@
-class Animal {
-    constructor(name) {
-        this.name = name;
-    }
-    getName() {
-        return this.name;
-    }
-}
+import React from 'react';
+import ReactDom from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-const dog = new Animal('dog');
+import Router from './router';
 
-
-
-const getData = () =>
-    new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(100);
-        }, 1000);
-    });
-
-const main = async () => {
-    const res = await getData();
-    console.log(res);
-};
-
-main();
-
-console.log('aaa');
+ReactDom.render(
+    <BrowserRouter>
+        <Router />
+    </BrowserRouter>,
+    document.getElementById('root')
+)

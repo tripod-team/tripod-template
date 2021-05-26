@@ -52,6 +52,12 @@ module.exports = {
             filename: '[contenthash:9].[name].css',
         })
     ],
+    resolve: {
+        extensions: ['.js', '.jsx', '.css'],
+        alias: {
+            'views': path.resolve(__dirname, './src/views'),
+        }
+    },
     devServer: {
         port: '7777', // 默认是8080
         open: true,
