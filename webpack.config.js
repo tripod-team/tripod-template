@@ -2,8 +2,23 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const dotEnv = require('dotenv');
+const Dotenv  = require('dotenv-webpack');
+const webpack = require('webpack');
 
-module.exports = {
+module.exports = (env) => {
+   
+    let result = dotEnv.config({
+        path: `./.env.${process.env.ENV}`
+    });
+    if(result.error) {
+        result = dotEnv.config();
+    }
+    const c = {}
+    for(const key in result.parsed) {
+           c[key] = JSON.stringify(result.parsed[key]);
+    }
+   return {
     mode: "development",
     entry: './src/index.js', // webpack的默认配置
     output: {
@@ -50,7 +65,11 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: '[contenthash:9].[name].css',
+        }),
+        new webpack.DefinePlugin({
+            ...c
         })
+        // dotEnv,
     ],
     resolve: {
         extensions: ['.js', '.jsx', '.css'],
@@ -70,4 +89,5 @@ module.exports = {
         compress: true, // 是否启用 gzip 压缩
     },
     devtool: 'cheap-module-eval-source-map', // 开发环境下使用
+}
 }

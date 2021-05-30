@@ -6,21 +6,23 @@ import ThirdPage1 from 'views/third-menu/ThirdPage1';
 
 import './style.css';
 
+console.log(MICRO_API_DEVSITE1_BASEURL)
+
 const routes = [];
 const routeFiles = require.context('../views', true, /\.jsx?$/) // 读取views文件夹下面所有的.jsx文件
-console.dir(routeFiles)
+// console.dir(routeFiles)
 routeFiles.keys().forEach(item => {
-  console.log(item)
+  // console.log(item)
   if (item.indexOf('component') === -1) { // component下面为子组件不需要注册路由
     let info = item.split('.')
-    console.log(info)
+    // console.log(info)
     routes.push({
       path: info[1].toLowerCase(),
       component: routeFiles(item).default
     })
   }
 });
-console.log(routes);
+// console.log(routes);
 
 const PrimaryLayout = () => (
   <div>
