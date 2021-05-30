@@ -4,8 +4,10 @@ import HomePage from 'views/home-menu/Map';
 import SecondPage1 from 'views/second-menu/SecondPage1';
 import ThirdPage1 from 'views/third-menu/ThirdPage1';
 
+import './style.css';
+
 const routes = [];
-const routeFiles = require.context('../views/second-menu', true, /\.jsx?$/) // 读取views文件夹下面所有的.jsx文件
+const routeFiles = require.context('../views', true, /\.jsx?$/) // 读取views文件夹下面所有的.jsx文件
 console.dir(routeFiles)
 routeFiles.keys().forEach(item => {
   console.log(item)
@@ -25,7 +27,7 @@ const PrimaryLayout = () => (
     <header>
       {
         routes.map(route => (
-          <Link key={route.path} to={route.path}>{route.path.split('/')[1]}</Link>
+          <Link className="layout-header" key={route.path} to={route.path}>{route.path.split('/')[1]}</Link>
         ))
       }
       {/* <Link to="/"> toHome </Link>
