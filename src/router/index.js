@@ -1,12 +1,10 @@
 import React from 'react';
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Link, Switch } from 'react-router-dom';
 import HomePage from 'views/home-menu/Map';
 import SecondPage1 from 'views/second-menu/SecondPage1';
 import ThirdPage1 from 'views/third-menu/ThirdPage1';
 
 import './style.css';
-
-console.log(MICRO_API_DEVSITE1_BASEURL)
 
 const routes = [];
 const routeFiles = require.context('../views', true, /\.jsx?$/) // 读取views文件夹下面所有的.jsx文件

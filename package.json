@@ -28,7 +28,7 @@
         "clean-webpack-plugin": "^4.0.0-alpha.0",
         "cross-env": "^7.0.3",
         "css-loader": "^5.2.6",
-        "dotenv-webpack": "^7.0.2",
+        "dotenv": "^10.0.0",
         "html-webpack-plugin": "^4.5.2",
         "mini-css-extract-plugin": "^1.6.0",
         "postcss-loader": "^4.3.0",
