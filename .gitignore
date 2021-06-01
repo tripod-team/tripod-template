@@ -2,6 +2,7 @@
 node_modules
 
 package-lock.json
+yarn.lock
 
 #dist
 dist
@@ -10,3 +11,9 @@ dist
 
 # .log
 *.log
+
+# editor
+.vscode/
+.idea/
+.DS_Store
+.history
