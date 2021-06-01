@@ -1,11 +1,11 @@
-const dotEnv = require('dotenv');
+const dotEnv = require("dotenv");
 
 /**
  * 获取环境配置
  */
 const getEnv = () => {
   let result = dotEnv.config({
-    path: `./.env.${process.env.ENV}`
+    path: `./.env.${process.env.ENV}`,
   });
   if (result.error) {
     result = dotEnv.config();
@@ -14,9 +14,9 @@ const getEnv = () => {
   for (const key in result.parsed) {
     c[key] = JSON.stringify(result.parsed[key]);
   }
-  return c
-}
+  return c;
+};
 
 module.exports = {
-  getEnv
-}
+  getEnv,
+};
