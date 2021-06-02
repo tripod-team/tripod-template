@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require("webpack");
 
-const envConfig = require("../src/lib").getEnv();
+const envConfig = require("../lib").getEnv();
 
 module.exports = {
   entry: "./src/index.js", // webpack的默认配置
