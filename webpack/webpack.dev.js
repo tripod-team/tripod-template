@@ -14,6 +14,7 @@ const devConfig = {
   },
   devServer: {
     port: "7777", // 默认是8080
+    historyApiFallback: true,
     open: true,
     hot: true,
     quiet: false, // 默认不启用. 若启用,除了初始启动信息之外的任何内容都不会被打印到控制台。这也意味着来自 webpack 的错误或警告在控制台不可见

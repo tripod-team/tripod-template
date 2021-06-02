@@ -1,0 +1,5 @@
+body {
+  background-color: cyan;
+  display: flex;
+  flex: 1;
+}
