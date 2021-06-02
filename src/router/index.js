@@ -26,23 +26,23 @@ routeFiles.keys().forEach((item) => {
 const PrimaryLayout = () => (
   <div>
     <header>
-      {routes.map((route) => (
+      {/* {routes.map((route) => (
         <Link className="layout-header" key={route.path} to={route.path}>
           {route.path.split("/")[1]}
         </Link>
-      ))}
-      {/* <Link to="/"> toHome </Link>
-      <Link to="/second"> toSecond </Link>
-      <Link to="/third"> toThird </Link> */}
+      ))} */}
+      <Link to="/home-menu"> toHome </Link>
+      <Link to="/second-menu"> toSecond </Link>
+      <Link to="/third-menu"> toThird </Link>
     </header>
     <main>
       <Switch>
-        {routes.map((route) => (
+        {/* {routes.map((route) => (
           <Route exact key={route.path} {...route} />
-        ))}
-        {/* <Route path="/" exact component={HomePage} />
-        <Route path="/second" component={SecondPage1} />
-        <Route path="/third" component={ThirdPage1} /> */}
+        ))} */}
+        <Route path="/home-menu" exact component={HomePage} />
+        <Route path="/second-menu" component={SecondPage1} />
+        <Route path="/third-menu" component={ThirdPage1} />
       </Switch>
     </main>
   </div>
