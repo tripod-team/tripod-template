@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
-    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env ENV=dev webpack-dev-server --config=./webpack/webpack.dev.js",
+    "build": "cross-env ENV=prod webpack --config=./webpack/webpack.prod.js",
     "lint": "eslint src",
     "format": "prettier --write ."
   },
@@ -44,7 +44,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.14.0",
