@@ -54,7 +54,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".css"],
     alias: {
-      views: path.resolve(__dirname, "./src/views"),
+      views: path.resolve(__dirname, "../src/views"),
     },
   },
   devServer: {
