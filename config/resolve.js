@@ -11,6 +11,7 @@ module.exports = (config, resolve) => {
     config
       .resolve
       .alias
+      .set('@', resolve('src'))
       .set('views', resolve('src/views'))
       .set('api', resolve('src/api'))
       .end();

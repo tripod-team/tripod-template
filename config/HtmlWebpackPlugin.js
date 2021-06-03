@@ -4,7 +4,7 @@ module.exports = (config, resolve) => {
   return () => {
     config.plugin('html')
       .use(HtmlWebpackPlugin, [{
-        template: resolve("./public/index.html"),
+        template: resolve("public/index.html"),
         filename: "index.html", // 打包后的文件名
         minify: {
           removeAttributeQuotes: false, // 是否删除属性的双引号
