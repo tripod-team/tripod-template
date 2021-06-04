@@ -1,13 +1,13 @@
-module.exports = api => {
+module.exports = (api) => {
   return {
-    "presets": ["@babel/preset-env", "@babel/preset-react"],
-    // "plugins": [
+    presets: ['@babel/preset-env', '@babel/preset-react'],
+    // plugins: [
     //   [
-    //     "@babel/plugin-transform-runtime",
+    //     '@babel/plugin-transform-runtime',
     //     {
-    //       "corejs": 3
-    //     }
-    //   ]
-    // ]
-  }
-}
+    //       corejs: 3,
+    //     },
+    //   ],
+    // ],
+  };
+};

@@ -27,7 +27,7 @@ const server = new WebpackDevServer(
   Object.assign(chainDevServer, {})
 );
 
-['SIGINT', 'SIGTERM'].forEach(signal => {
+['SIGINT', 'SIGTERM'].forEach((signal) => {
   process.on(signal, () => {
     server.close(() => {
       process.exit(0);
@@ -38,7 +38,7 @@ const server = new WebpackDevServer(
 server.listen(port);
 
 new Promise(() => {
-  compiler.hooks.done.tap('dev', stats => {
+  compiler.hooks.done.tap('dev', (stats) => {
     const empty = '   ';
     const common = `App running at:
     - Local: http://localhost:${port}${publicPath}\n`;

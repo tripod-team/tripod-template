@@ -6,8 +6,8 @@ module.exports = {
         'last 3 versions',
         'iOS >= 8',
         'Android >= 4',
-        'Chrome >= 40'
-      ]
-    }
-  }
-}
+        'Chrome >= 40',
+      ],
+    },
+  },
+};

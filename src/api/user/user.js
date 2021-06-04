@@ -1,1 +1,1 @@
-export { getConfigList } from "./user";
+export { getConfigList } from './user';

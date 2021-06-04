@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 
 const ajax = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: 'http://localhost:3000',
   timeout: 30000,
   headers: {
-    contentType: "application/json;charset=utf-8",
+    contentType: 'application/json;charset=utf-8',
   },
   transformResponse: [
     (data) => {

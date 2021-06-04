@@ -1,6 +1,9 @@
 module.exports = (config, resolve) => {
   const createCSSRule = (lang, test, loader, options = {}) => {
-    const baseRule = config.module.rule(lang).test(test).set('exclude', /node_modules/);
+    const baseRule = config.module
+      .rule(lang)
+      .test(test)
+      .set('exclude', /node_modules/);
     const normalRule = baseRule.oneOf('normal');
     normalRule
       .use('extract-css-loader')
@@ -10,15 +13,10 @@ module.exports = (config, resolve) => {
       .use('css-loader')
       .loader(require.resolve('css-loader'))
       .options({});
-    normalRule
-      .use('postcss-loader')
-      .loader(require.resolve('postcss-loader'));
+    normalRule.use('postcss-loader').loader(require.resolve('postcss-loader'));
     if (loader) {
       const rs = require.resolve(loader);
-      normalRule
-        .use(loader)
-        .loader(rs)
-        .options(options)
+      normalRule.use(loader).loader(rs).options(options);
     }
   };
 

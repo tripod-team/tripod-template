@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node script/dev.js",
     "build": "cross-env NODE_ENV=production node script/build.js",
-    "lint": "eslint src",
+    "lint": "eslint -c .eslintrc src",
+    "lint:fix": "yarn lint --fix",
     "format": "prettier --write .",
     "server": "node ./script/server.js"
   },

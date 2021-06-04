@@ -1,5 +1,5 @@
-import api from "api";
-import config from "./config";
+import api from 'api';
+import config from './config';
 
 /**
  * 查询用户配置信息
@@ -12,7 +12,7 @@ export async function getConfigList(options) {
     config.getConfigList,
     {
       ...options,
-      system_code: "COMBINE",
+      system_code: 'COMBINE',
     },
     {
       baseURL: config.baseURL,
