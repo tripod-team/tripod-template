@@ -2,7 +2,7 @@ module.exports = (config, resolve) => {
   const baseRule = config.module
     .rule('js')
     .test(/.(j|t)sx?$/)
-    // .set('exclude', /node_modules/);
+    .set('exclude', /node_modules/);
   const babelPath = resolve('babel.js');
   const babelConf = require(babelPath);
   const version = require(resolve(
@@ -13,6 +13,6 @@ module.exports = (config, resolve) => {
     baseRule
       .use('babel')
       .loader(require.resolve('babel-loader'))
-      .options(babelConf({ version }));
+      // .options(babelConf({ version }));
   };
 };
