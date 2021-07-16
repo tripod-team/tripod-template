@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 
-import Router from './router';
+import App from './App';
+import pkg from '../package.json';
 
 import './style/index.css';
 
+const root = document.querySelector('#root');
+
 ReactDom.render(
-  <BrowserRouter>
-    <Router />
-  </BrowserRouter>,
-  document.getElementById('root')
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  root,
+  () => {
+    console.log(`Project ${pkg.name} is running...`)
+  }
 );
