@@ -13,6 +13,6 @@ module.exports = (config, resolve) => {
     baseRule
       .use('babel')
       .loader(require.resolve('babel-loader'))
-      // .options(babelConf({ version }));
+      .options(babelConf({ version }));
   };
 };

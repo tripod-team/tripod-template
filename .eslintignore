@@ -4,3 +4,8 @@ test
 test/**
 docs
 docs/**
+*.md
+dist
+.eslint
+.gitignore
+commitlint.config.js

@@ -6,6 +6,7 @@ import routes from './routes';
 
 const App = () => {
   const isLogin = JSON.parse(localStorage.getItem('isLogin'));
+  console.log(isLogin)
 
   return (
     <Router>

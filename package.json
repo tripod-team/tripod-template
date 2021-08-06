@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky install",
     "start": "cross-env NODE_ENV=development node script/dev.js",
     "build": "cross-env NODE_ENV=production node script/build.js",
     "lint": "eslint -c .eslintrc src",
-    "lint:fix": "yarn lint --fix",
-    "format": "prettier --write .",
+    "lint:fix": "npm run lint --fix",
+    "format": "prettier --write ./src",
     "server": "node ./script/server.js"
   },
   "repository": {
@@ -31,6 +32,8 @@
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
     "@babel/runtime-corejs3": "^7.14.0",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "autoprefixer": "^10.2.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
@@ -46,6 +49,7 @@
     "eslint-config-react-important-stuff": "^3.0.0",
     "eslint-plugin-prettier": "^3.4.0",
     "html-webpack-plugin": "^4.5.2",
+    "husky": "^7.0.1",
     "jest": "^27.0.3",
     "mini-css-extract-plugin": "^1.6.0",
     "ora": "^5.4.0",
