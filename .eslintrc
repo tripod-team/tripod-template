@@ -9,6 +9,6 @@
 
   },
   "globals": {
-
+    "MICRO_API_USER_BASEURL": "writable"
   }
 }

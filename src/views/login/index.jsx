@@ -5,15 +5,15 @@ import './styles.css';
 
 const Login = () => {
   const isLogin = JSON.parse(localStorage.getItem('isLogin'));
-  if(isLogin) {
-    return <Redirect to="/app" />
+  if (isLogin) {
+    return <Redirect to="/app" />;
   }
-  
+
   return (
     <div>
       <h2>Login Page</h2>
     </div>
-  )
+  );
 };
 
 export default Login;

@@ -14,14 +14,14 @@ const routes = [
     routes: [
       {
         path: '/app/map',
-        component: Map
-      }
-    ]
+        component: Map,
+      },
+    ],
   },
   {
     path: '/login',
-    component: Login
-  }
+    component: Login,
+  },
 ];
 
 export default routes;

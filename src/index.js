@@ -14,6 +14,7 @@ ReactDom.render(
   </StrictMode>,
   root,
   () => {
-    console.log(`Project ${pkg.name} is running...`)
+    // eslint-disable-next-line
+    console.log(`Project ${pkg.name} is running...`);
   }
 );
